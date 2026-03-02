@@ -1,0 +1,43 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Nav from '../components/Nav.astro';
+
+interface Props {
+  title: string;
+  active?: 'home' | 'work' | 'about' | 'contact';
+}
+
+const { title, active = 'home' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>{title}</title>
+
+    <ViewTransitions />
+
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <div class="crt" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="mark" href="/" transition:name="mark">
+        <span class="mark__sigil">▣</span>
+        <span class="mark__text">Tom.exe</span>
+      </a>
+      <Nav active={active} />
+    </header>
+
+    <main class="shell" transition:animate="fade">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <span class="muted">Built with Astro • CRT mode: ON</span>
+    </footer>
+  </body>
+</html>

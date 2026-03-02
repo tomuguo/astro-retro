@@ -1,0 +1,27 @@
+---
+interface Props {
+  active: 'home' | 'work' | 'about' | 'contact';
+}
+const { active } = Astro.props;
+
+const items: Array<{ key: Props['active']; href: string; label: string }> = [
+  { key: 'home', href: '/', label: 'Home' },
+  { key: 'work', href: '/work', label: 'Work' },
+  { key: 'about', href: '/about', label: 'About' },
+  { key: 'contact', href: '/contact', label: 'Contact' },
+];
+---
+<nav class="nav" aria-label="Primary">
+  <div class="nav__rail">
+    {items.map((it) => (
+      <a
+        class={"nav__item" + (active === it.key ? " is-active" : "")}
+        href={it.href}
+        transition:name={active === it.key ? 'nav-pill' : undefined}
+      >
+        <span class="nav__label">{it.label}</span>
+        {active === it.key && <span class="nav__pill" aria-hidden="true"></span>}
+      </a>
+    ))}
+  </div>
+</nav>

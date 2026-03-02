@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About • Tom.exe" active="about">
+  <section>
+    <h1 transition:animate="slide">About</h1>
+    <p class="muted">
+      I like clean systems, playful interactions, and shipping fast.
+      I dislike busywork and spinners that lie.
+    </p>
+
+    <div class="grid" style="margin-top: 16px">
+      <div class="card half" transition:animate="fade">
+        <h2>Stats</h2>
+        <p class="muted">UX: 80 • Engineering: 70 • Vibes: 99</p>
+      </div>
+      <div class="card half" transition:animate="fade">
+        <h2>Toolbelt</h2>
+        <p class="muted">TypeScript, CSS, React (when needed), and tastefully overdone motion.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

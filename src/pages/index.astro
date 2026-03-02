@@ -1,17 +1,32 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<BaseLayout title="Home • Tom.exe" active="home">
+  <section>
+    <h1 transition:animate="slide">Hello. I’m Tom.</h1>
+    <p class="muted">
+      I build stuff. Sometimes it works. Sometimes it becomes a feature.
+    </p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <div style="margin: 16px 0 6px">
+      <a class="btn" href="/work">
+        <span aria-hidden="true">▶</span>
+        <span>Enter: Work</span>
+      </a>
+      <span class="muted" style="margin-left: 10px">(Try clicking the tabs up top.)</span>
+    </div>
+
+    <div class="grid" style="margin-top: 18px">
+      <div class="card half" transition:animate="fade">
+        <h2>Now</h2>
+        <p class="muted">Designing playful interfaces and shipping tiny experiments.</p>
+      </div>
+      <div class="card half" transition:animate="fade">
+        <h2>Signal</h2>
+        <p class="muted">
+          Minimal, retro, and interactive — like a good old DOS prompt, but with taste.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

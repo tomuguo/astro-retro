@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Work • Tom.exe" active="work">
+  <section>
+    <h1 transition:animate="slide">Work</h1>
+    <p class="muted">A few projects. Click around — it’s safe (mostly).</p>
+
+    <div class="grid" style="margin-top: 16px">
+      <a class="card third" href="#" onclick="event.preventDefault()" transition:animate="fade">
+        <h2>Project: Signal Jammer</h2>
+        <p class="muted">A tiny web toy with crunchy UI sounds (coming soon).</p>
+      </a>
+      <a class="card third" href="#" onclick="event.preventDefault()" transition:animate="fade">
+        <h2>Project: CRT Portfolio</h2>
+        <p class="muted">This site. Scanlines included. Refunds not.</p>
+      </a>
+      <a class="card third" href="#" onclick="event.preventDefault()" transition:animate="fade">
+        <h2>Project: The Button</h2>
+        <p class="muted">It does something. You’ll know when it happens.</p>
+      </a>
+
+      <div class="card half" transition:animate="fade">
+        <h2>Case study placeholder</h2>
+        <p class="muted">Swap this for a real write-up when you’re ready.</p>
+      </div>
+      <div class="card half" transition:animate="fade">
+        <h2>Tech</h2>
+        <p class="muted">Astro • View Transitions • CSS mischief</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
