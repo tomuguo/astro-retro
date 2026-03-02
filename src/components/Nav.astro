@@ -4,11 +4,14 @@ interface Props {
 }
 const { active } = Astro.props;
 
+const BASE_URL = import.meta.env.BASE_URL;
+const withBase = (path: string) => new URL(path.replace(/^\//, ''), BASE_URL).pathname;
+
 const items: Array<{ key: Props['active']; href: string; label: string }> = [
-  { key: 'home', href: '/', label: 'Home' },
-  { key: 'work', href: '/work', label: 'Work' },
-  { key: 'about', href: '/about', label: 'About' },
-  { key: 'contact', href: '/contact', label: 'Contact' },
+  { key: 'home', href: withBase('/'), label: 'Home' },
+  { key: 'work', href: withBase('/work/'), label: 'Work' },
+  { key: 'about', href: withBase('/about/'), label: 'About' },
+  { key: 'contact', href: withBase('/contact/'), label: 'Contact' },
 ];
 ---
 <nav class="nav" aria-label="Primary">
